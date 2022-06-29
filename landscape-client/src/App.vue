@@ -1,15 +1,45 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id='app'>
+  <UserComponent v-bind:user="user" />
+  <LandscapeComponent v-bind:landscapes="landscapes" />
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import LandscapeComponent from './components/LandscapeComponent.vue'
+import UserComponent from './components/UserComponent.vue'
+
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LandscapeComponent,
+    UserComponent
+  },
+  data: () => ({
+    
+      landscapes: {},
+      user: {},
+    
+  }),
+  mounted(){
+    axios.get('http://127.0.0.1:8001/api/user')
+    .then((response) => {
+    this.user = response.data[0]
+    console.warn("user",this.user)
+    })
+
+    
+    axios.get('http://127.0.0.1:8001/api/album')
+    .then((response) => {
+    this.landscapes = response.data
+    console.warn("ahahaha",this.landscapes)
+    })
+    
+
   }
 }
 </script>
@@ -24,3 +54,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
