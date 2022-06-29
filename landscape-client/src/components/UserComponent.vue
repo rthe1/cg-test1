@@ -4,6 +4,7 @@
       <div class="card">
       <div class="picture">
       <!-- <img style="width: 25px height: 25px" :src="require(`../assets/${user.img}`)"  alt="profile-picture"> -->
+      <img src="https://joeschmoe.io/api/v1/random" alt="profile-picture">
       </div>
       <div class="details">
       <p>{{user.bio}}</p>

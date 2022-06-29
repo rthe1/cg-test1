@@ -1,7 +1,7 @@
 <template>
 <div v-for="landscape in landscapes" :key="landscape.id">
 
-  <a-card hoverable style="width: 300px">
+  <a-card hoverable style="width: 300px; padding: 5px; margin: 30px;">
     <template #cover>
       <img
         alt="example"

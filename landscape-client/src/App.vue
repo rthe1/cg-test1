@@ -61,10 +61,14 @@ export default {
 }
 
 .landscape-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 55vw;
+   display: grid;
+   justify-content: space-around;
+    margin: 10px;
+  padding: 10px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  width: 70%;
+  height: 400px;
 }
 </style>
 
