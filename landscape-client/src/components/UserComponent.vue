@@ -1,13 +1,22 @@
 <template>
-  <div class="bio-container">
-    <img class="bio-image" :src="require(`@/assets/${this.user.img}`)" alt="PROFILE PICTURE">
-    <div class="bio-summary">{{user.bio}}</div>
-    <div class="bio-contact-details">
-      {{user.email}}
-      {{user.phone}}
+  <div style="background: #ececec; padding: 30px">
+    <a-card :title="user.name" :bordered="false" style="width: 70vw">
+      <div class="card">
+      <div class="picture">
+      <!-- <img style="width: 25px height: 25px" :src="require(`../assets/${user.img}`)"  alt="profile-picture"> -->
       </div>
+      <div class="details">
+      <p>{{user.bio}}</p>
+      <p>{{user.phone}}</p>
+      <p>{{user.email}}</p>
+      </div>
+      </div>
+    </a-card>
   </div>
 </template>
+
+
+
 
 <script>
 
@@ -21,8 +30,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bio-container{
-height: 50px;
-width: 80%;
+img{
+height: 150px;
+width: 150px;
+}
+
+.card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
 }
 </style>

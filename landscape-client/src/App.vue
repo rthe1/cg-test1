@@ -1,7 +1,9 @@
 <template>
   <div id='app'>
   <UserComponent v-bind:user="user" />
+  <div class="landscape-container">
   <LandscapeComponent v-bind:landscapes="landscapes" />
+  </div>
   </div>
 
 </template>
@@ -26,14 +28,14 @@ export default {
     
   }),
   mounted(){
-    axios.get('http://127.0.0.1:8001/api/user')
+    axios.get('http://127.0.0.1:8000/api/user')
     .then((response) => {
     this.user = response.data[0]
     console.warn("user",this.user)
     })
 
     
-    axios.get('http://127.0.0.1:8001/api/album')
+    axios.get('http://127.0.0.1:8000/api/album')
     .then((response) => {
     this.landscapes = response.data
     console.warn("ahahaha",this.landscapes)
@@ -46,12 +48,23 @@ export default {
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.landscape-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 55vw;
 }
 </style>
 
